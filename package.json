@@ -1,0 +1,25 @@
+{
+  "name": "luaforwindows",
+  "version": "1.0.0",
+  "description": "A continuation of the LfW project by rjpcomputing.   \r This project is comprised of a few scripts which compile the Lua source code and some modules.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "7zip-bin": "^5.2.0",
+    "fs-extra": "^11.2.0",
+    "hash-wasm": "^4.11.0",
+    "node-7z": "^3.0.0",
+    "ora": "^8.0.1",
+    "prompts": "^2.4.2",
+    "wait-file": "^1.0.5"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^22.3.0"
+  }
+}

@@ -1,0 +1,152 @@
+{
+    "tools": [
+        {
+            "name": "clang",
+            "version": "18.1.8",
+            "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20240619/llvm-mingw-20240619-ucrt-x86_64.zip",
+            "b3sum": "a4e4647260f288ad1a6e31c0f1c23388a1b8ad13bae905ebab0b930d57eca235",
+            "out_dir": "llvm-mingw-20240619-ucrt-x86_64",
+            "to_path": ["bin"],
+            "copy_files": {
+                "bin/mingw32-make.exe": "bin/make.exe"
+            }
+        },
+        {
+            "name": "meson",
+            "version": "1.5.1",
+            "url": "https://github.com/mesonbuild/meson/releases/download/1.5.1/meson-1.5.1-64.msi",
+            "b3sum": "a6c4d4ae62e3df10386e9c5ec0f5715f744f709c6e9920f5aee48d12d6dde574",
+            "out_dir": "tmp/PFiles64/Meson",
+            "custom_extract_command": [
+                "C:\\Windows\\System32\\msiexec.exe",
+                "/qb",
+                "TARGETDIR=__out_dir__",
+                "/a",
+                "__file__"
+            ],
+            "to_path": [""]
+        },
+        {
+            "name": "git",
+            "version": "2.46.0",
+            "url": "https://github.com/git-for-windows/git/releases/download/v2.46.0.windows.1/PortableGit-2.46.0-64-bit.7z.exe",
+            "b3sum": "8389df4d67f3e10bd85603d5c2e87005268d65b1aa42541c35f9e2b39e2ce50a",
+            "create_dir": true,
+            "to_path": ["cmd", "usr/bin"]
+        },
+        {
+            "name": "cmake",
+            "version": "3.30.2",
+            "url": "https://github.com/Kitware/CMake/releases/download/v3.30.2/cmake-3.30.2-windows-x86_64.zip",
+            "b3sum": "c7578a0b1c078fddef2e88b586f24251d7d4b02c5579df54f263ee5be0c3956a",
+            "out_dir": "cmake-3.30.2-windows-x86_64",
+            "to_path": ["bin"]
+        },
+        {
+            "name": "sphinx",
+            "version": "0.8.2",
+            "url": "https://github.com/trustin/sphinx-binary/releases/download/v0.8.2/sphinx.windows-x86_64.exe",
+            "b3sum": "4a8d6b43f0e207ad16504a43e8f646db5afb528ab02aca7ac1db9463a3d19fc9",
+            "out_dir": "tmp/sphinx-bin",
+            "custom_extract_command": [
+                "install",
+                "-D",
+                "__file__",
+                "__out_dir__/sphinx-bin/sphinx-build.exe"
+            ],
+            "to_path": [""]
+        }
+    ],
+    "libraries": [
+        {
+            "name": "lua",
+            "version": "5.4.7",
+            "url": "https://lua.org/ftp/lua-5.4.7.tar.gz",
+            "b3sum": "e51c2f347e3185479d5ff95cae8ac77511db486853269443c56bedaa0a6ae629",
+            "out_dir": "lua-5.4.7",
+            "build_script": "lua.js"
+        },
+        {
+            "name": "luafilesystem",
+            "version": "1.8.0",
+            "url": "https://github.com/lunarmodules/luafilesystem/archive/refs/tags/v1_8_0.zip",
+            "b3sum": "5a69edc432ee24134ac42d6bbf0c97ed6e5e770bd13e86313b586556cf80681f",
+            "out_dir": "luafilesystem-1_8_0",
+            "build_script": "lfs.js"
+        },
+        {
+            "name": "penlight",
+            "version": "1.14.0",
+            "url": "https://github.com/lunarmodules/Penlight/archive/refs/tags/1.14.0.zip",
+            "b3sum": "09a0d3593d3517f49f02f47e9ce7fbf65cd8a3410b884f7859121072e24a183c",
+            "out_dir": "Penlight-1.14.0",
+            "build_script": "penlight.js"
+        },
+        {
+            "name": "ldoc",
+            "version": "1.5.0",
+            "url": "https://github.com/lunarmodules/ldoc/archive/refs/tags/v1.5.0.zip",
+            "b3sum": "f6ce9b922e4d46e4cd592bf7d7be41dc3e3878a334db1d53cd7434c4ebba5d55",
+            "out_dir": "ldoc-1.5.0",
+            "build_script": "ldoc.js"
+        },
+        {
+            "name": "argparse",
+            "version": "0.7.1",
+            "url": "https://github.com/luarocks/argparse/archive/refs/tags/0.7.1.zip",
+            "b3sum": "ef0d4489e9a0d522958c1a5c4baffaa07c60ced30e302a84e816abb1ba354aba",
+            "out_dir": "argparse-0.7.1",
+            "build_script": "argparse.js"
+        },
+        {
+            "name": "Lua-cURLv3",
+            "version": "0.3.13",
+            "url": "https://github.com/Lua-cURL/Lua-cURLv3/archive/refs/tags/v0.3.13.tar.gz",
+            "b3sum": "32f1bee7003180e297b0907e740ef8b1b71f43aebc8a0dad68235bc8a1016354",
+            "out_dir": "Lua-cURLv3-0.3.13",
+            "build_script": "lua_curl.js",
+            "dependencies": {
+                "zlib": {
+                    "url": "https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.2.1.zip",
+                    "b3sum": "e6614d2de2f7ce1d4914be3cbf303ed051bcd4b6d089669b0cb09bd0a03b5351",
+                    "out_dir": "zlib-ng-2.2.1"
+                },
+                "brotli": {
+                    "url": "https://github.com/google/brotli/archive/refs/tags/v1.1.0.zip",
+                    "b3sum": "20b028f8691a15169aec2c6a19ae2f902228eb91f88b411bf5861130cb76e96c",
+                    "out_dir": "brotli-1.1.0"
+                },
+                "libssh2": {
+                    "url": "https://github.com/libssh2/libssh2/releases/download/libssh2-1.11.0/libssh2-1.11.0.tar.xz",
+                    "b3sum": "dc1f6e66479b90fdb2ab52df6975b0d4969656aef04ef57b1be2f9970b6813a5",
+                    "out_dir": "libssh2-1.11.0"
+                },
+                "nghttp2": {
+                    "url": "https://github.com/nghttp2/nghttp2/releases/download/v1.62.1/nghttp2-1.62.1.tar.xz",
+                    "b3sum": "77b1c0fed8e97db0aa7d6e1a5ed16e5a053093ed0006b7c747dca290d694f3af",
+                    "out_dir": "nghttp2-1.62.1"
+                },
+                "curl": {
+                    "url": "https://github.com/curl/curl/releases/download/curl-8_9_1/curl-8.9.1.tar.xz",
+                    "b3sum": "1b76657e40d2d9164aa3481fb67a4acb506b01820afa5c9a7a463de21e19d283",
+                    "out_dir": "curl-8.9.1"
+                }
+            }
+        },
+        {
+            "name": "cffi-lua",
+            "version": "0.2.3",
+            "url": "https://github.com/q66/cffi-lua/archive/refs/tags/v0.2.3.tar.gz",
+            "b3sum": "2dc887dbff434b0ad4f88f419e6c900d326194156d5c8ef53f96f87e3915330d",
+            "out_dir": "cffi-lua-0.2.3",
+            "build_script": "cffi.js",
+            "dependencies": {
+                "libffi": {
+                    "url": "https://github.com/libffi/libffi/releases/download/v3.4.6/libffi-3.4.6.tar.gz",
+                    "b3sum": "c7d7a36b1dad81ff39ca53f3a11c3e01450dfb2d787e05ca60cfe1b4b6491759",
+                    "out_dir": "libffi-3.4.6"
+                }
+            }
+        }
+    ]
+}
